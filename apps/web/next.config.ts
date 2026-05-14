@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: false },
+  experimental: {
+    memoryBasedWorkersCount: true,
+    parallelServerBuildTraces: false,
+    parallelServerCompiles: false,
+    webpackBuildWorker: true,
+    webpackMemoryOptimizations: true,
+  },
   images: {
     remotePatterns: [
       { protocol: "http", hostname: "127.0.0.1", port: "4000" },

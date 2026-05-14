@@ -44,6 +44,6 @@ services:
       - key: PORT
         value: 3000
       - key: NODE_OPTIONS
-        value: "--max-old-space-size=460"
+        value: "--max-old-space-size=384"
       - key: NEXT_PUBLIC_API_URL
         sync: false   # Set to your API service URL: https://biznesjon-api.onrender.com/api/v1
