@@ -10,7 +10,7 @@ services:
     runtime: node
     plan: free
     buildCommand: >
-      npm install &&
+      npm install --include=dev &&
       npm --workspace @biznesjon/api run prisma:generate &&
       npx prisma db push --schema apps/api/prisma/schema.prisma --accept-data-loss &&
       npm run build:api
@@ -36,7 +36,7 @@ services:
     name: biznesjon-web
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build:web
+    buildCommand: npm install --include=dev && npm run build:web
     startCommand: npm --workspace @biznesjon/web run start
     envVars:
       - key: NODE_ENV
