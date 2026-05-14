@@ -18,7 +18,8 @@ type JoinResponse = {
 };
 
 export default function JoinGroupPage() {
-  const { token } = useParams<{ token: string }>();
+  const params = useParams<{ token: string }>();
+  const token = params?.token ?? "";
   const locale = useLocale();
   const router = useRouter();
 

@@ -94,7 +94,8 @@ function Avatar({ name, src, size = 32 }: { name: string; src?: string | null; s
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
-  const pathname = usePathname();
+  const pathnameRaw = usePathname();
+  const pathname = pathnameRaw ?? "";
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
   const logout = useAuthStore((s) => s.logout);

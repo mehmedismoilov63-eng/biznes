@@ -17,7 +17,8 @@ type PersonDto = {
 };
 
 export default function PersonProfilePage() {
-  const { username } = useParams<{ username: string }>();
+  const params = useParams<{ username: string }>();
+  const username = params?.username ?? "";
   const locale = useLocale();
   const router = useRouter();
   const [person, setPerson] = useState<PersonDto | null>(null);

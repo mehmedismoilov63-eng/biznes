@@ -15,7 +15,8 @@ type PromoDto = {
 };
 
 export default function SharePromoPage() {
-  const { token } = useParams<{ token: string }>();
+  const params = useParams<{ token: string }>();
+  const token = params?.token ?? "";
   const [promo, setPromo] = useState<PromoDto | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

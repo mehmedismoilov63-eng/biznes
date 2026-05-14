@@ -347,7 +347,7 @@ export default function MessagesPage() {
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const withUserId = searchParams.get("with");
+  const withUserId = searchParams?.get("with") ?? null;
 
   const [threads, setThreads] = useState<ThreadDto[]>([]);
   const [activeThread, setActiveThread] = useState<ThreadDetail | null>(null);

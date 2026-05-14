@@ -21,7 +21,8 @@ type LessonDto = {
 };
 
 export default function LessonPlayerPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = params?.id ?? "";
   const locale = useLocale();
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);

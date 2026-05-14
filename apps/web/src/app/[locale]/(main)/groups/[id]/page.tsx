@@ -207,7 +207,8 @@ function GroupAvatar({ group, size = 36, editable = false, onUploaded }: { group
 
 /* ── Page ── */
 export default function GroupChatPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = params?.id ?? "";
   const locale = useLocale();
   const router = useRouter();
   const t = useTranslations("messages");
