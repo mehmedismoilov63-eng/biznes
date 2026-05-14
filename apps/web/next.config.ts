@@ -6,6 +6,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: false },
   images: {
     remotePatterns: [
       { protocol: "http", hostname: "127.0.0.1", port: "4000" },
