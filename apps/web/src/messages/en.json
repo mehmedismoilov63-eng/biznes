@@ -1,0 +1,230 @@
+{
+  "app": {
+    "name": "Biznesjon",
+    "tagline": "Free professional education platform for entrepreneurs"
+  },
+  "nav": {
+    "home": "Home",
+    "lessons": "Lessons",
+    "groups": "Groups",
+    "messages": "Messages",
+    "profile": "Profile",
+    "settings": "Settings",
+    "admin": "Admin",
+    "mySite": "My Site",
+    "people": "Entrepreneurs",
+    "notifications": "Notifications"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out",
+    "phone": "Phone number",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "otp": "SMS code",
+    "otpSent": "A code has been sent to {phone}",
+    "otpResend": "Resend",
+    "otpResendIn": "Resend in {seconds}s",
+    "verify": "Verify",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "passwordPlaceholder": "At least 8 characters",
+    "errors": {
+      "phoneTaken": "This phone number is already registered",
+      "wrongCredentials": "Incorrect phone or password",
+      "weakPassword": "Password must be at least 8 characters with 1 digit and 1 uppercase letter",
+      "otpWrong": "Incorrect OTP code",
+      "otpExpired": "OTP expired. Please resend."
+    }
+  },
+  "onboarding": {
+    "language": {
+      "title": "Choose language",
+      "subtitle": "Set your preferred interface language"
+    },
+    "industry": {
+      "title": "Choose industry",
+      "subtitle": "Select your professional field"
+    },
+    "section": {
+      "title": "Choose section",
+      "subtitle": "Specify your main area of activity"
+    },
+    "profile": {
+      "title": "Set up your profile",
+      "subtitle": "Let other entrepreneurs find you",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "username": "Username",
+      "usernamePlaceholder": "@your_username",
+      "usernameHint": "3-20 characters: letters, numbers, underscores",
+      "businessName": "Business name (optional)",
+      "city": "City (optional)",
+      "bio": "Bio (optional, max 200 characters)",
+      "save": "Save and continue"
+    }
+  },
+  "home": {
+    "mySite": "My Site",
+    "continueWatching": "Continue watching",
+    "newLessons": "New lessons",
+    "popular": "Popular lessons",
+    "myGroups": "My groups",
+    "newEntrepreneurs": "New entrepreneurs",
+    "viewAll": "View all"
+  },
+  "lessons": {
+    "title": "Lessons",
+    "views": "{count} views",
+    "duration": "{duration}",
+    "progress": "{percent}% watched",
+    "continue": "Continue",
+    "start": "Start",
+    "subtitles": "Subtitles",
+    "subtitlesOff": "Off",
+    "speed": "Speed",
+    "quality": "Quality",
+    "pip": "Picture in Picture",
+    "fullscreen": "Full screen"
+  },
+  "people": {
+    "title": "Entrepreneurs",
+    "search": "Name, business or @username",
+    "sendMessage": "Message",
+    "online": "Online",
+    "noResults": "No entrepreneurs found"
+  },
+  "groups": {
+    "title": "Groups",
+    "create": "Create group",
+    "search": "Search groups",
+    "join": "Join",
+    "leave": "Leave",
+    "members": "{count} members",
+    "public": "Public",
+    "private": "Private",
+    "invite": "Invite link",
+    "copyInvite": "Copy link",
+    "name": "Group name",
+    "description": "Description (optional)",
+    "visibility": "Visibility",
+    "namePlaceholder": "Group name (3-50 characters)",
+    "descPlaceholder": "Briefly about the group..."
+  },
+  "messages": {
+    "title": "Messages",
+    "send": "Send",
+    "typePlaceholder": "Type a message...",
+    "sending": "Sending...",
+    "sent": "Sent",
+    "delivered": "Delivered",
+    "read": "Read",
+    "deleteMessage": "Delete",
+    "replyTo": "Reply",
+    "addReaction": "React",
+    "voice": "Voice message",
+    "videoNote": "Video message",
+    "attachment": "Attach file",
+    "newConversation": "New conversation"
+  },
+  "mysite": {
+    "title": "My Site",
+    "subtitle": "Professional video about your business",
+    "share": "Share",
+    "shareLink": "Link copied!",
+    "disableShare": "Disable sharing",
+    "enableShare": "Enable sharing",
+    "noVideo": "No video yet",
+    "noVideoHint": "The Biznesjon team will create a professional video about your business"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "readAll": "Mark all as read",
+    "empty": "No notifications",
+    "types": {
+      "DIRECT_MESSAGE": "New message",
+      "GROUP_MENTION": "Mentioned in group",
+      "PROMO_VIDEO_PUBLISHED": "My Site video is ready",
+      "LESSON_PUBLISHED": "New lesson published",
+      "GROUP_INVITE": "Group invitation",
+      "ADMIN_ANNOUNCEMENT": "Platform announcement"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "language": "Language",
+    "industry": "Industry & Section",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "theme": "Theme",
+    "sessions": "Active devices",
+    "deleteAccount": "Delete account",
+    "deleteAccountConfirm": "Delete your account? You can restore it by signing in within 30 days.",
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "save": "Save",
+    "saved": "Saved"
+  },
+  "search": {
+    "placeholder": "Lessons, entrepreneurs, groups...",
+    "lessons": "Lessons",
+    "people": "Entrepreneurs",
+    "groups": "Groups",
+    "noResults": "No results found",
+    "recent": "Recent searches"
+  },
+  "admin": {
+    "title": "Admin panel",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "lessons": "Lessons",
+    "promoVideos": "Promo videos",
+    "announcements": "Announcements",
+    "audit": "Audit log",
+    "stats": {
+      "users": "Users",
+      "lessons": "Lessons",
+      "promoVideos": "Promo videos",
+      "messages": "Messages today"
+    },
+    "resetPassword": "Reset password",
+    "sendMessage": "Send message",
+    "attachPromo": "Attach promo video",
+    "uploadLesson": "Upload lesson"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "optional": "optional",
+    "required": "required",
+    "search": "Search",
+    "filter": "Filter",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "online": "Online",
+    "offline": "Offline",
+    "minutes": "{n}m",
+    "hours": "{n}h",
+    "days": "{n}d",
+    "justNow": "Just now",
+    "noData": "No data"
+  }
+}

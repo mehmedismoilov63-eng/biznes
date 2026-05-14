@@ -1,0 +1,453 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  DELETING
+  DELETED
+}
+
+enum LanguageCode {
+  uz_Latn
+  uz_Cyrl
+  ru
+  en
+}
+
+enum LessonStatus {
+  DRAFT
+  PROCESSING
+  PUBLISHED
+  ARCHIVED
+  FAILED
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  VIDEO
+  VIDEO_NOTE
+  VOICE
+}
+
+enum MessageStatus {
+  SENT
+  DELIVERED
+  READ
+}
+
+enum GroupVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum GroupRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum PromoStatus {
+  PROCESSING
+  PUBLISHED
+  ARCHIVED
+  FAILED
+}
+
+enum NotificationType {
+  DIRECT_MESSAGE
+  GROUP_MENTION
+  PROMO_VIDEO_PUBLISHED
+  LESSON_PUBLISHED
+  GROUP_INVITE
+  ADMIN_ANNOUNCEMENT
+}
+
+enum OtpPurpose {
+  REGISTER
+  PHONE_CHANGE
+}
+
+model User {
+  id           String     @id @default(cuid())
+  phone        String     @unique
+  passwordHash String
+  role         UserRole   @default(USER)
+  status       UserStatus @default(ACTIVE)
+  language     String     @default("uz-Latn")
+  industryId   String?
+  sectionId    String?
+  lastActiveAt DateTime?
+  deletedAt    DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  profile                 UserProfile?
+  industry                Industry?          @relation(fields: [industryId], references: [id])
+  section                 Section?           @relation(fields: [sectionId], references: [id])
+  refreshTokens           RefreshToken[]
+  lessonProgress          LessonProgress[]
+  savedLessons            SavedLesson[]
+  promoVideos             PromoVideo[]
+  sentMessages            DirectMessage[]    @relation("DirectMessageSender")
+  receivedMessages        DirectMessage[]    @relation("DirectMessageReceiver")
+  groupMemberships        GroupMembership[]
+  groupMessages           GroupMessage[]
+  notifications           Notification[]
+  uploadedLessons         Lesson[]           @relation("LessonUploader")
+  uploadedPromoVideos     PromoVideo[]       @relation("PromoVideoUploader")
+  auditLogs               AuditLog[]         @relation("AuditActor")
+
+  @@index([phone])
+  @@index([status, deletedAt])
+  @@index([industryId, sectionId])
+  @@index([lastActiveAt])
+}
+
+model UserProfile {
+  userId       String   @id
+  firstName    String
+  lastName     String
+  username     String   @unique
+  avatarPath   String?
+  businessName String?
+  city         String?
+  bio          String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([username])
+  @@index([city])
+}
+
+model Industry {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  names     Json
+  icon      String?
+  isOpen    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sections Section[]
+  users    User[]
+  lessons  Lesson[]
+
+  @@index([sortOrder])
+}
+
+model Section {
+  id         String   @id @default(cuid())
+  industryId String
+  slug       String
+  names      Json
+  icon       String?
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+  users    User[]
+  lessons  Lesson[]
+
+  @@unique([industryId, slug])
+  @@index([industryId, sortOrder])
+}
+
+model Lesson {
+  id              String       @id @default(cuid())
+  industryId      String
+  sectionId       String
+  uploadedById    String?
+  titles          Json
+  descriptions    Json
+  hlsManifestPath String?
+  thumbnailPath   String?
+  sourcePath      String?
+  durationSeconds Int?
+  status          LessonStatus @default(DRAFT)
+  sortOrder       Int          @default(0)
+  viewCount       Int          @default(0)
+  tags            String[]     @default([])
+  publishedAt     DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  industry   Industry          @relation(fields: [industryId], references: [id])
+  section    Section           @relation(fields: [sectionId], references: [id])
+  uploadedBy User?             @relation("LessonUploader", fields: [uploadedById], references: [id])
+  subtitles  LessonSubtitle[]
+  progress   LessonProgress[]
+  savedBy    SavedLesson[]
+
+  @@index([industryId, sectionId, status, publishedAt])
+  @@index([status, publishedAt])
+  @@index([viewCount])
+}
+
+model LessonSubtitle {
+  lessonId String
+  language String
+  path     String
+
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@id([lessonId, language])
+}
+
+model LessonProgress {
+  userId          String
+  lessonId        String
+  positionSeconds Int      @default(0)
+  completed       Boolean  @default(false)
+  updatedAt       DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@id([userId, lessonId])
+  @@index([userId, updatedAt])
+}
+
+model SavedLesson {
+  userId    String
+  lessonId  String
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@id([userId, lessonId])
+  @@index([userId, createdAt])
+}
+
+model PromoVideo {
+  id              String      @id @default(cuid())
+  userId          String
+  uploadedById    String?
+  titles          Json
+  descriptions    Json
+  hlsManifestPath String?
+  thumbnailPath   String?
+  sourcePath      String?
+  durationSeconds Int?
+  status          PromoStatus @default(PROCESSING)
+  isShareable     Boolean     @default(false)
+  shareToken      String?     @unique
+  viewCount       Int         @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  user       User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  uploadedBy User?                @relation("PromoVideoUploader", fields: [uploadedById], references: [id])
+  subtitles  PromoVideoSubtitle[]
+
+  @@index([userId, createdAt])
+  @@index([shareToken])
+  @@index([status])
+}
+
+model PromoVideoSubtitle {
+  promoVideoId String
+  language     String
+  path         String
+
+  promoVideo PromoVideo @relation(fields: [promoVideoId], references: [id], onDelete: Cascade)
+
+  @@id([promoVideoId, language])
+}
+
+model DirectMessage {
+  id          String        @id @default(cuid())
+  senderId    String
+  receiverId  String
+  type        MessageType   @default(TEXT)
+  text        String?
+  mediaPath   String?
+  replyToId   String?
+  status      MessageStatus @default(SENT)
+  deletedAt   DateTime?
+  createdAt   DateTime      @default(now())
+  deliveredAt DateTime?
+  readAt      DateTime?
+
+  sender   User             @relation("DirectMessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User             @relation("DirectMessageReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  replyTo  DirectMessage?   @relation("DirectMessageReplies", fields: [replyToId], references: [id])
+  replies  DirectMessage[]  @relation("DirectMessageReplies")
+  reactions MessageReaction[]
+
+  @@index([senderId, receiverId, createdAt])
+  @@index([receiverId, createdAt])
+}
+
+model MessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+
+  message DirectMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId, emoji])
+}
+
+model GroupChat {
+  id          String          @id @default(cuid())
+  ownerId     String
+  name        String
+  description String?
+  avatarPath  String?
+  visibility  GroupVisibility @default(PUBLIC)
+  memberCount Int             @default(1)
+  deletedAt   DateTime?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  memberships GroupMembership[]
+  messages    GroupMessage[]
+  invites     GroupInvite[]
+
+  @@index([visibility, memberCount])
+  @@index([ownerId])
+}
+
+model GroupMembership {
+  groupId  String
+  userId   String
+  role     GroupRole @default(MEMBER)
+  joinedAt DateTime  @default(now())
+
+  group GroupChat @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  user  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([groupId, userId])
+  @@index([userId])
+}
+
+model GroupMessage {
+  id        String      @id @default(cuid())
+  groupId   String
+  senderId  String
+  type      MessageType @default(TEXT)
+  text      String?
+  mediaPath String?
+  replyToId String?
+  deletedAt DateTime?
+  createdAt DateTime    @default(now())
+
+  group     GroupChat              @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  sender    User                   @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  replyTo   GroupMessage?          @relation("GroupMessageReplies", fields: [replyToId], references: [id])
+  replies   GroupMessage[]         @relation("GroupMessageReplies")
+  reactions GroupMessageReaction[]
+
+  @@index([groupId, createdAt])
+  @@index([senderId, createdAt])
+}
+
+model GroupMessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+
+  message GroupMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId, emoji])
+}
+
+model GroupInvite {
+  id        String    @id @default(cuid())
+  groupId   String
+  token     String    @unique
+  maxUses   Int?
+  uses      Int       @default(0)
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+
+  group GroupChat @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([expiresAt])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  body      String?
+  metadata  Json?
+  readAt    DateTime?
+  expiresAt DateTime
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt, createdAt])
+  @@index([expiresAt])
+}
+
+model OtpCode {
+  id           String     @id @default(cuid())
+  phone        String
+  codeHash     String
+  purpose      OtpPurpose
+  attemptCount Int        @default(0)
+  expiresAt    DateTime
+  consumedAt   DateTime?
+  createdAt    DateTime   @default(now())
+
+  @@index([phone, purpose, expiresAt])
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  family    String
+  userAgent String?
+  ip        String?
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([family])
+  @@index([expiresAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  target    String
+  metadata  Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  actor User? @relation("AuditActor", fields: [actorId], references: [id])
+
+  @@index([actorId, createdAt])
+  @@index([action, createdAt])
+}

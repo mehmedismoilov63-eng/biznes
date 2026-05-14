@@ -1,0 +1,230 @@
+{
+  "app": {
+    "name": "Biznesjon",
+    "tagline": "Tadbirkorlar uchun bepul professional ta'lim platformasi"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "lessons": "Darslar",
+    "groups": "Guruhlar",
+    "messages": "Xabarlar",
+    "profile": "Profil",
+    "settings": "Sozlamalar",
+    "admin": "Admin",
+    "mySite": "Mening saytim",
+    "people": "Tadbirkorlar",
+    "notifications": "Bildirishnomalar"
+  },
+  "auth": {
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+    "logout": "Chiqish",
+    "phone": "Telefon raqam",
+    "password": "Parol",
+    "confirmPassword": "Parolni tasdiqlang",
+    "otp": "SMS kod",
+    "otpSent": "SMS orqali {phone} ga kod yuborildi",
+    "otpResend": "Qayta yuborish",
+    "otpResendIn": "{seconds} soniyadan keyin qayta yuborish",
+    "verify": "Tasdiqlash",
+    "noAccount": "Hisobingiz yo'qmi?",
+    "hasAccount": "Hisobingiz bormi?",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "passwordPlaceholder": "Kamida 8 belgi",
+    "errors": {
+      "phoneTaken": "Bu raqam allaqachon ro'yxatdan o'tgan",
+      "wrongCredentials": "Telefon yoki parol noto'g'ri",
+      "weakPassword": "Parol kamida 8 belgi, 1 raqam va 1 katta harf bo'lishi kerak",
+      "otpWrong": "OTP kod noto'g'ri",
+      "otpExpired": "OTP muddati o'tgan. Qayta yuborish tugmasini bosing"
+    }
+  },
+  "onboarding": {
+    "language": {
+      "title": "Tilni tanlang",
+      "subtitle": "Interfeys tilini belgilang"
+    },
+    "industry": {
+      "title": "Soha tanlang",
+      "subtitle": "O'z yo'nalishingizni belgilang"
+    },
+    "section": {
+      "title": "Bo'lim tanlang",
+      "subtitle": "Asosiy faoliyat sohangizni aniqlashtiring"
+    },
+    "profile": {
+      "title": "Profilni to'ldiring",
+      "subtitle": "Boshqa tadbirkorlar sizi topa olsin",
+      "firstName": "Ism",
+      "lastName": "Familiya",
+      "username": "Username",
+      "usernamePlaceholder": "@sizning_username",
+      "usernameHint": "3-20 belgi: harf, raqam, pastki chiziq",
+      "businessName": "Biznes nomi (ixtiyoriy)",
+      "city": "Shahar (ixtiyoriy)",
+      "bio": "Bio (ixtiyoriy, max 200 belgi)",
+      "save": "Saqlash va davom etish"
+    }
+  },
+  "home": {
+    "mySite": "Mening saytim",
+    "continueWatching": "Davom ettirish",
+    "newLessons": "Yangi darslar",
+    "popular": "Mashhur darslar",
+    "myGroups": "Mening guruhlarim",
+    "newEntrepreneurs": "Yangi tadbirkorlar",
+    "viewAll": "Hammasini ko'rish"
+  },
+  "lessons": {
+    "title": "Darslar",
+    "views": "{count} marta ko'rilgan",
+    "duration": "{duration}",
+    "progress": "{percent}% ko'rildi",
+    "continue": "Davom etish",
+    "start": "Boshlash",
+    "subtitles": "Subtitle",
+    "subtitlesOff": "O'chirish",
+    "speed": "Tezlik",
+    "quality": "Sifat",
+    "pip": "PiP",
+    "fullscreen": "To'liq ekran"
+  },
+  "people": {
+    "title": "Tadbirkorlar",
+    "search": "Ism, biznes yoki @username",
+    "sendMessage": "Xabar yuborish",
+    "online": "Onlayn",
+    "noResults": "Tadbirkor topilmadi"
+  },
+  "groups": {
+    "title": "Guruhlar",
+    "create": "Yangi guruh",
+    "search": "Guruh qidirish",
+    "join": "Qo'shilish",
+    "leave": "Chiqish",
+    "members": "{count} a'zo",
+    "public": "Ochiq",
+    "private": "Yopiq",
+    "invite": "Taklif linki",
+    "copyInvite": "Nusxalash",
+    "name": "Guruh nomi",
+    "description": "Tavsif (ixtiyoriy)",
+    "visibility": "Ko'rinish",
+    "namePlaceholder": "Guruh nomi (3-50 belgi)",
+    "descPlaceholder": "Guruh haqida qisqacha..."
+  },
+  "messages": {
+    "title": "Xabarlar",
+    "send": "Yuborish",
+    "typePlaceholder": "Xabar yozing...",
+    "sending": "Yuborilmoqda...",
+    "sent": "Yuborildi",
+    "delivered": "Yetdi",
+    "read": "O'qildi",
+    "deleteMessage": "O'chirish",
+    "replyTo": "Javob berish",
+    "addReaction": "Reaktsiya",
+    "voice": "Ovozli xabar",
+    "videoNote": "Video xabar",
+    "attachment": "Fayl biriktirish",
+    "newConversation": "Yangi suhbat"
+  },
+  "mysite": {
+    "title": "Mening saytim",
+    "subtitle": "Biznesingiz haqida professional video",
+    "share": "Ulashish",
+    "shareLink": "Havola nusxalandi!",
+    "disableShare": "Ulashishni o'chirish",
+    "enableShare": "Ommaviy ulashish",
+    "noVideo": "Hali video yo'q",
+    "noVideoHint": "Biznesjon jamoasi sizning biznesingiz haqida professional video tayyorlaydi"
+  },
+  "notifications": {
+    "title": "Bildirishnomalar",
+    "readAll": "Hammasini o'qildi deb belgilash",
+    "empty": "Bildirishnomalar yo'q",
+    "types": {
+      "DIRECT_MESSAGE": "Yangi xabar",
+      "GROUP_MENTION": "Guruhda eslatildi",
+      "PROMO_VIDEO_PUBLISHED": "Mening saytim videosi tayyor",
+      "LESSON_PUBLISHED": "Yangi dars chiqdi",
+      "GROUP_INVITE": "Guruhga taklif",
+      "ADMIN_ANNOUNCEMENT": "Platforma e'loni"
+    }
+  },
+  "settings": {
+    "title": "Sozlamalar",
+    "profile": "Profil",
+    "language": "Til",
+    "industry": "Soha va bo'lim",
+    "notifications": "Bildirishnomalar",
+    "privacy": "Maxfiylik",
+    "theme": "Tema",
+    "sessions": "Faol qurilmalar",
+    "deleteAccount": "Hisobni o'chirish",
+    "deleteAccountConfirm": "Hisobingizni o'chirmoqchimisiz? 30 kun ichida qayta kirish orqali tiklanadi.",
+    "themes": {
+      "light": "Yorug'",
+      "dark": "Qorong'i",
+      "system": "Tizimga muvofiq"
+    },
+    "save": "Saqlash",
+    "saved": "Saqlandi"
+  },
+  "search": {
+    "placeholder": "Darslar, tadbirkorlar, guruhlar...",
+    "lessons": "Darslar",
+    "people": "Tadbirkorlar",
+    "groups": "Guruhlar",
+    "noResults": "Natija topilmadi",
+    "recent": "So'nggi qidiruvlar"
+  },
+  "admin": {
+    "title": "Admin panel",
+    "dashboard": "Dashboard",
+    "users": "Foydalanuvchilar",
+    "lessons": "Darslar",
+    "promoVideos": "Promo videolar",
+    "announcements": "E'lonlar",
+    "audit": "Audit log",
+    "stats": {
+      "users": "Foydalanuvchilar",
+      "lessons": "Darslar",
+      "promoVideos": "Promo videolar",
+      "messages": "Bugungi xabarlar"
+    },
+    "resetPassword": "Parolni tiklash",
+    "sendMessage": "Xabar yuborish",
+    "attachPromo": "Promo video biriktirish",
+    "uploadLesson": "Dars yuklash"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xatolik yuz berdi",
+    "retry": "Qayta urinish",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "back": "Orqaga",
+    "close": "Yopish",
+    "confirm": "Tasdiqlash",
+    "yes": "Ha",
+    "no": "Yo'q",
+    "or": "yoki",
+    "optional": "ixtiyoriy",
+    "required": "majburiy",
+    "search": "Qidirish",
+    "filter": "Filtr",
+    "share": "Ulashish",
+    "copy": "Nusxalash",
+    "copied": "Nusxalandi!",
+    "online": "Onlayn",
+    "offline": "Oflayn",
+    "minutes": "{n} daqiqa",
+    "hours": "{n} soat",
+    "days": "{n} kun",
+    "justNow": "Hozir",
+    "noData": "Ma'lumot yo'q"
+  }
+}

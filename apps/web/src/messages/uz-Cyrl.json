@@ -1,0 +1,230 @@
+{
+  "app": {
+    "name": "Biznesjon",
+    "tagline": "Тадбиркорлар учун бепул профессионал таълим платформаси"
+  },
+  "nav": {
+    "home": "Бош саҳифа",
+    "lessons": "Дарслар",
+    "groups": "Гуруҳлар",
+    "messages": "Хабарлар",
+    "profile": "Профил",
+    "settings": "Созламалар",
+    "admin": "Админ",
+    "mySite": "Менинг сайтим",
+    "people": "Тадбиркорлар",
+    "notifications": "Билдиришномалар"
+  },
+  "auth": {
+    "login": "Кириш",
+    "register": "Рўйхатдан ўтиш",
+    "logout": "Чиқиш",
+    "phone": "Телефон рақам",
+    "password": "Парол",
+    "confirmPassword": "Паролни тасдиқланг",
+    "otp": "SMS код",
+    "otpSent": "SMS орқали {phone} га код юборилди",
+    "otpResend": "Қайта юбориш",
+    "otpResendIn": "{seconds} сониядан кейин қайта юбориш",
+    "verify": "Тасдиқлаш",
+    "noAccount": "Ҳисобингиз йўқми?",
+    "hasAccount": "Ҳисобингиз борми?",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "passwordPlaceholder": "Камида 8 белги",
+    "errors": {
+      "phoneTaken": "Бу рақам аллақачон рўйхатдан ўтган",
+      "wrongCredentials": "Телефон ёки парол нотўғри",
+      "weakPassword": "Парол камида 8 белги, 1 рақам ва 1 катта ҳарф бўлиши керак",
+      "otpWrong": "OTP код нотўғри",
+      "otpExpired": "OTP муддати ўтган. Қайта юбориш тугмасини босинг"
+    }
+  },
+  "onboarding": {
+    "language": {
+      "title": "Тилни танланг",
+      "subtitle": "Интерфейс тилини белгиланг"
+    },
+    "industry": {
+      "title": "Соҳа танланг",
+      "subtitle": "Ўз йўналишингизни белгиланг"
+    },
+    "section": {
+      "title": "Бўлим танланг",
+      "subtitle": "Асосий фаолият соҳангизни аниқлаштиринг"
+    },
+    "profile": {
+      "title": "Профилни тўлдиринг",
+      "subtitle": "Бошқа тадбиркорлар сизни топа олсин",
+      "firstName": "Исм",
+      "lastName": "Фамилия",
+      "username": "Username",
+      "usernamePlaceholder": "@сизнинг_username",
+      "usernameHint": "3-20 белги: ҳарф, рақам, пастки чизиқ",
+      "businessName": "Бизнес номи (ихтиёрий)",
+      "city": "Шаҳар (ихтиёрий)",
+      "bio": "Bio (ихтиёрий, макс 200 белги)",
+      "save": "Сақлаш ва давом этиш"
+    }
+  },
+  "home": {
+    "mySite": "Менинг сайтим",
+    "continueWatching": "Давом эттириш",
+    "newLessons": "Янги дарслар",
+    "popular": "Машҳур дарслар",
+    "myGroups": "Менинг гуруҳларим",
+    "newEntrepreneurs": "Янги тадбиркорлар",
+    "viewAll": "Ҳаммасини кўриш"
+  },
+  "lessons": {
+    "title": "Дарслар",
+    "views": "{count} марта кўрилган",
+    "duration": "{duration}",
+    "progress": "{percent}% кўрилди",
+    "continue": "Давом этиш",
+    "start": "Бошлаш",
+    "subtitles": "Субтитр",
+    "subtitlesOff": "Ўчириш",
+    "speed": "Тезлик",
+    "quality": "Сифат",
+    "pip": "PiP",
+    "fullscreen": "Тўлиқ экран"
+  },
+  "people": {
+    "title": "Тадбиркорлар",
+    "search": "Исм, бизнес ёки @username",
+    "sendMessage": "Хабар юбориш",
+    "online": "Онлайн",
+    "noResults": "Тадбиркор топилмади"
+  },
+  "groups": {
+    "title": "Гуруҳлар",
+    "create": "Янги гуруҳ",
+    "search": "Гуруҳ қидириш",
+    "join": "Қўшилиш",
+    "leave": "Чиқиш",
+    "members": "{count} аъзо",
+    "public": "Очиқ",
+    "private": "Ёпиқ",
+    "invite": "Таклиф линки",
+    "copyInvite": "Нусхалаш",
+    "name": "Гуруҳ номи",
+    "description": "Тавсиф (ихтиёрий)",
+    "visibility": "Кўриниш",
+    "namePlaceholder": "Гуруҳ номи (3-50 белги)",
+    "descPlaceholder": "Гуруҳ ҳақида қисқача..."
+  },
+  "messages": {
+    "title": "Хабарлар",
+    "send": "Юбориш",
+    "typePlaceholder": "Хабар ёзинг...",
+    "sending": "Юборилмоқда...",
+    "sent": "Юборилди",
+    "delivered": "Етди",
+    "read": "Ўқилди",
+    "deleteMessage": "Ўчириш",
+    "replyTo": "Жавоб бериш",
+    "addReaction": "Реакция",
+    "voice": "Овозли хабар",
+    "videoNote": "Видео хабар",
+    "attachment": "Файл бириктириш",
+    "newConversation": "Янги суҳбат"
+  },
+  "mysite": {
+    "title": "Менинг сайтим",
+    "subtitle": "Бизнесингиз ҳақида профессионал видео",
+    "share": "Улашиш",
+    "shareLink": "Ҳавола нусхаланди!",
+    "disableShare": "Улашишни ўчириш",
+    "enableShare": "Оммавий улашиш",
+    "noVideo": "Ҳали видео йўқ",
+    "noVideoHint": "Biznesjon жамоаси сизнинг бизнесингиз ҳақида профессионал видео тайёрлайди"
+  },
+  "notifications": {
+    "title": "Билдиришномалар",
+    "readAll": "Ҳаммасини ўқилди деб белгилаш",
+    "empty": "Билдиришномалар йўқ",
+    "types": {
+      "DIRECT_MESSAGE": "Янги хабар",
+      "GROUP_MENTION": "Гуруҳда эслатилди",
+      "PROMO_VIDEO_PUBLISHED": "Менинг сайтим видеоси тайёр",
+      "LESSON_PUBLISHED": "Янги дарс чиқди",
+      "GROUP_INVITE": "Гуруҳга таклиф",
+      "ADMIN_ANNOUNCEMENT": "Платформа эълони"
+    }
+  },
+  "settings": {
+    "title": "Созламалар",
+    "profile": "Профил",
+    "language": "Тил",
+    "industry": "Соҳа ва бўлим",
+    "notifications": "Билдиришномалар",
+    "privacy": "Махфийлик",
+    "theme": "Тема",
+    "sessions": "Фаол қурилмалар",
+    "deleteAccount": "Ҳисобни ўчириш",
+    "deleteAccountConfirm": "Ҳисобингизни ўчирмоқчимисиз? 30 кун ичида қайта кириш орқали тикланади.",
+    "themes": {
+      "light": "Ёруғ",
+      "dark": "Қоронғи",
+      "system": "Тизимга мувофиқ"
+    },
+    "save": "Сақлаш",
+    "saved": "Сақланди"
+  },
+  "search": {
+    "placeholder": "Дарслар, тадбиркорлар, гуруҳлар...",
+    "lessons": "Дарслар",
+    "people": "Тадбиркорлар",
+    "groups": "Гуруҳлар",
+    "noResults": "Натижа топилмади",
+    "recent": "Сўнгги қидирувлар"
+  },
+  "admin": {
+    "title": "Админ панел",
+    "dashboard": "Dashboard",
+    "users": "Фойдаланувчилар",
+    "lessons": "Дарслар",
+    "promoVideos": "Промо видеолар",
+    "announcements": "Эълонлар",
+    "audit": "Аудит журнали",
+    "stats": {
+      "users": "Фойдаланувчилар",
+      "lessons": "Дарслар",
+      "promoVideos": "Промо видеолар",
+      "messages": "Бугунги хабарлар"
+    },
+    "resetPassword": "Паролни тиклаш",
+    "sendMessage": "Хабар юбориш",
+    "attachPromo": "Промо видео бириктириш",
+    "uploadLesson": "Дарс юклаш"
+  },
+  "common": {
+    "loading": "Юкланмоқда...",
+    "error": "Хатолик юз берди",
+    "retry": "Қайта уриниш",
+    "save": "Сақлаш",
+    "cancel": "Бекор қилиш",
+    "delete": "Ўчириш",
+    "edit": "Таҳрирлаш",
+    "back": "Орқага",
+    "close": "Ёпиш",
+    "confirm": "Тасдиқлаш",
+    "yes": "Ҳа",
+    "no": "Йўқ",
+    "or": "ёки",
+    "optional": "ихтиёрий",
+    "required": "мажбурий",
+    "search": "Қидириш",
+    "filter": "Филтр",
+    "share": "Улашиш",
+    "copy": "Нусхалаш",
+    "copied": "Нусхаланди!",
+    "online": "Онлайн",
+    "offline": "Офлайн",
+    "minutes": "{n} дақиқа",
+    "hours": "{n} соат",
+    "days": "{n} кун",
+    "justNow": "Ҳозир",
+    "noData": "Маълумот йўқ"
+  }
+}

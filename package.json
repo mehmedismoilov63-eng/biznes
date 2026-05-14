@@ -1,0 +1,29 @@
+{
+  "name": "biznesjon-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Biznesjon professional education and community platform.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:web": "npm --workspace @biznesjon/web run dev",
+    "dev:api": "npm --workspace @biznesjon/api run dev",
+    "dev:prototype": "node server.js",
+    "build": "npm run build:shared && npm run build:web && npm run build:api",
+    "build:shared": "npm --workspace @biznesjon/shared run build",
+    "build:web": "npm --workspace @biznesjon/web run build",
+    "build:api": "npm --workspace @biznesjon/api run build",
+    "typecheck": "npm run typecheck:shared && npm run typecheck:web && npm run typecheck:api",
+    "typecheck:shared": "npm --workspace @biznesjon/shared run typecheck",
+    "typecheck:web": "npm --workspace @biznesjon/web run typecheck",
+    "typecheck:api": "npm --workspace @biznesjon/api run typecheck",
+    "lint": "npm --workspace @biznesjon/web run lint",
+    "prisma:generate": "npm --workspace @biznesjon/api run prisma:generate"
+  }
+}
